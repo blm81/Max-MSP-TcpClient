@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 112.0, 131.0, 357.0, 265.0 ],
+		"rect" : [ 112.0, 131.0, 333.0, 384.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -38,13 +38,52 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-5",
+					"linecount" : 3,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 191.0, 149.0, 77.0, 47.0 ],
+					"presentation_rect" : [ 189.0, 153.0, 0.0, 0.0 ],
+					"style" : "",
+					"text" : "send message to server"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 191.0, 201.0, 36.0, 22.0 ],
+					"style" : "",
+					"text" : "hello"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-11",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 191.0, 247.0, 53.0, 22.0 ],
+					"style" : "",
+					"text" : "send $1"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-10",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 254.0, 36.0, 72.0, 33.0 ],
-					"presentation_rect" : [ 259.0, 36.0, 0.0, 0.0 ],
+					"patching_rect" : [ 207.0, 36.0, 72.0, 33.0 ],
 					"style" : "",
 					"text" : "close connection"
 				}
@@ -57,8 +96,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 166.0, 36.0, 72.0, 33.0 ],
-					"presentation_rect" : [ 156.0, 22.0, 0.0, 0.0 ],
+					"patching_rect" : [ 119.0, 36.0, 72.0, 33.0 ],
 					"style" : "",
 					"text" : "open connection"
 				}
@@ -71,7 +109,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 34.0, 22.0, 85.0, 47.0 ],
+					"patching_rect" : [ 22.0, 22.0, 87.0, 47.0 ],
 					"style" : "",
 					"text" : "send bangs to read from socket"
 				}
@@ -83,7 +121,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 34.0, 217.0, 34.0, 22.0 ],
+					"patching_rect" : [ 38.0, 344.0, 34.0, 22.0 ],
 					"style" : "",
 					"text" : "print"
 				}
@@ -96,7 +134,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 254.0, 78.0, 71.0, 22.0 ],
+					"patching_rect" : [ 207.0, 78.0, 71.0, 22.0 ],
 					"style" : "",
 					"text" : "close_conn"
 				}
@@ -109,7 +147,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 166.0, 78.0, 70.0, 22.0 ],
+					"patching_rect" : [ 119.0, 78.0, 70.0, 22.0 ],
 					"style" : "",
 					"text" : "open_conn"
 				}
@@ -123,7 +161,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 34.0, 78.0, 24.0, 24.0 ],
+					"patching_rect" : [ 22.0, 78.0, 24.0, 24.0 ],
 					"style" : ""
 				}
 
@@ -135,7 +173,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 34.0, 130.0, 58.0, 22.0 ],
+					"patching_rect" : [ 38.0, 247.0, 58.0, 22.0 ],
 					"style" : "",
 					"text" : "metro 30"
 				}
@@ -148,7 +186,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 34.0, 170.0, 60.0, 22.0 ],
+					"patching_rect" : [ 38.0, 297.0, 60.0, 22.0 ],
 					"style" : "",
 					"text" : "TcpClient"
 				}
@@ -161,6 +199,24 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-11", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-11", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-13", 0 ]
 				}
 
 			}

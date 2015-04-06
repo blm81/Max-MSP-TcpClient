@@ -1,3 +1,19 @@
+/*
+ This code is intended for use with the Max/MSP SDK
+
+ Redistribution and use in source and binary forms, with or without modification, are permitted as long as the following disclaimer is included:
+
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+ PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
 #include "maxcpp6.h"
 #include <iostream>
 #include <stdio.h>
@@ -42,7 +58,14 @@ class TcpClient : public MaxCpp6<TcpClient> {
             }
         }
     
-        //connect to _server
+        //send message to server - TO DO: modify to send multipart message
+        void send(long inlet, t_symbol * s, long ac, t_atom * av) {
+            _outMsg = write( _socket, atom_getsym(av)->s_name, strlen( atom_getsym(av)->s_name ) );
+            if ( _outMsg < 0 ) 
+                error("ERROR writing to socket");
+        }
+    
+        //connect to server
         void open_conn( long inlet, t_symbol * s, long ac, t_atom * av ) {
             _port = 5000;
             _socket = socket( AF_INET, SOCK_STREAM, 0 ); //streaming socket
@@ -78,6 +101,7 @@ class TcpClient : public MaxCpp6<TcpClient> {
         int _socket;
         int _port;
         int _inMsg;
+        int _outMsg;
         struct sockaddr_in _servAddr;
         struct hostent * _server;
         char _inBuf[2048];
@@ -90,6 +114,7 @@ C74_EXPORT int main(void) {
     // create a class with the given name:
 	TcpClient::makeMaxClass("TcpClient");
 	REGISTER_METHOD(TcpClient, bang);
+    REGISTER_METHOD_GIMME(TcpClient, send);
 	REGISTER_METHOD_GIMME(TcpClient, open_conn);
     REGISTER_METHOD_GIMME(TcpClient, close_conn);
 }
