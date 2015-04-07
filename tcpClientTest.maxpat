@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 112.0, 131.0, 333.0, 384.0 ],
+		"rect" : [ 117.0, 151.0, 314.0, 574.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -38,13 +38,69 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-21",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 38.0, 109.0, 60.0, 22.0 ],
+					"style" : "",
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-14",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 38.0, 341.0, 64.0, 22.0 ],
+					"style" : "",
+					"text" : "route msg"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-16",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 111.0, 402.0, 52.0, 22.0 ],
+					"style" : "",
+					"text" : "compile"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-12",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 37.0, 464.0, 85.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"filename" : "tcp_client.js",
+						"parameter_enable" : 0
+					}
+,
+					"style" : "",
+					"text" : "js tcp_client.js"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-5",
 					"linecount" : 3,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 191.0, 149.0, 77.0, 47.0 ],
-					"presentation_rect" : [ 189.0, 153.0, 0.0, 0.0 ],
+					"patching_rect" : [ 206.0, 134.0, 77.0, 47.0 ],
 					"style" : "",
 					"text" : "send message to server"
 				}
@@ -57,7 +113,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 191.0, 201.0, 36.0, 22.0 ],
+					"patching_rect" : [ 207.0, 191.0, 36.0, 22.0 ],
 					"style" : "",
 					"text" : "hello"
 				}
@@ -70,7 +126,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 191.0, 247.0, 53.0, 22.0 ],
+					"patching_rect" : [ 207.0, 239.0, 53.0, 22.0 ],
 					"style" : "",
 					"text" : "send $1"
 				}
@@ -83,7 +139,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 207.0, 36.0, 72.0, 33.0 ],
+					"patching_rect" : [ 206.0, 49.0, 72.0, 33.0 ],
 					"style" : "",
 					"text" : "close connection"
 				}
@@ -96,7 +152,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 119.0, 36.0, 72.0, 33.0 ],
+					"patching_rect" : [ 118.0, 49.0, 72.0, 33.0 ],
 					"style" : "",
 					"text" : "open connection"
 				}
@@ -109,7 +165,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 22.0, 22.0, 87.0, 47.0 ],
+					"patching_rect" : [ 15.0, 49.0, 87.0, 47.0 ],
 					"style" : "",
 					"text" : "send bangs to read from socket"
 				}
@@ -121,7 +177,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 38.0, 344.0, 34.0, 22.0 ],
+					"patching_rect" : [ 166.0, 355.0, 34.0, 22.0 ],
 					"style" : "",
 					"text" : "print"
 				}
@@ -134,7 +190,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 207.0, 78.0, 71.0, 22.0 ],
+					"patching_rect" : [ 206.0, 91.0, 71.0, 22.0 ],
 					"style" : "",
 					"text" : "close_conn"
 				}
@@ -147,7 +203,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 119.0, 78.0, 70.0, 22.0 ],
+					"patching_rect" : [ 118.0, 91.0, 70.0, 22.0 ],
 					"style" : "",
 					"text" : "open_conn"
 				}
@@ -161,7 +217,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 22.0, 78.0, 24.0, 24.0 ],
+					"patching_rect" : [ 38.0, 152.0, 24.0, 24.0 ],
 					"style" : ""
 				}
 
@@ -173,7 +229,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 38.0, 247.0, 58.0, 22.0 ],
+					"patching_rect" : [ 38.0, 210.0, 58.0, 22.0 ],
 					"style" : "",
 					"text" : "metro 30"
 				}
@@ -186,7 +242,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 38.0, 297.0, 60.0, 22.0 ],
+					"patching_rect" : [ 38.0, 290.0, 60.0, 22.0 ],
 					"style" : "",
 					"text" : "TcpClient"
 				}
@@ -194,6 +250,15 @@
 			}
  ],
 		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-14", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
 				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
 					"disabled" : 0,
@@ -213,6 +278,25 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-11", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-11", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"midpoints" : [ 46.5, 505.0, 269.0, 505.0, 269.0, 223.0, 216.5, 223.0 ],
+					"source" : [ "obj-12", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-11", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -222,10 +306,46 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-12", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-14", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-12", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-16", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-16", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-21", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-21", 0 ]
 				}
 
 			}
@@ -258,6 +378,13 @@
 			}
  ],
 		"dependency_cache" : [ 			{
+				"name" : "tcp_client.js",
+				"bootpath" : "~/Documents/MaxSDK-6.1.4/maxcpp/examples/TcpClient/js",
+				"patcherrelativepath" : "./js",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "TcpClient.mxo",
 				"type" : "iLaX"
 			}
