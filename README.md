@@ -15,3 +15,4 @@ a basic TCP client for *nix systems (tested on Mac OSX 10.7)
 1. set up MaxCpp per the instructions on the repository readme
 2. place the TcpClient folder in the directory "maxcpp/examples"
 3. add .mxo build path (defaults to "Library/Developer/Xcode/DerivedData" in the xCode project) in your Max File Preferences
+4. add "TcpClient/js" to Max File Preferences
