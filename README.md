@@ -6,9 +6,9 @@ a basic TCP client for *nix systems (tested on Mac OSX 10.7)
 
 *Project Dependencies*
 
-*[Max SKD:](https://cycling74.com/downloads/sdk/) tested with version 6.1.4 / Max 7
-*[MaxCpp:](https://github.com/grrrwaaa/maxcpp) a great C++ wrapper for the Max SDK
-*socket.h: should be present on your *nix system 
+- [Max SKD:](https://cycling74.com/downloads/sdk/) tested with version 6.1.4 / Max 7
+- [MaxCpp:](https://github.com/grrrwaaa/maxcpp) a great C++ wrapper for the Max SDK
+- socket.h: should be present on your *nix system 
 
 *Build Instructions*
 
