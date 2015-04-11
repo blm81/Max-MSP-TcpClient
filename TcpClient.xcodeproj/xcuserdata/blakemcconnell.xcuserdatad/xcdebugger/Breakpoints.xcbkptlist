@@ -13,7 +13,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "46"
          endingLineNumber = "46"
-         landmarkName = "send(long inlet, t_symbol * s, long ac, t_atom * av)"
+         landmarkName = "bang( long inlet )"
          landmarkType = "7">
       </FileBreakpoint>
    </FileBreakpoints>

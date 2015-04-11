@@ -33,7 +33,9 @@ class TcpClient : public MaxCpp6<TcpClient> {
     public:
     
         TcpClient( t_symbol * sym, long ac, t_atom * av ) {
-            setupIO( 1, 2 ); // inlets / outlets
+            setupIO( 1, 2 ); //inlets / outlets
+            _port = 1234; //set default port and hostname
+            _hostname = "localhost";
         }
         
         ~TcpClient() {}	
@@ -67,12 +69,11 @@ class TcpClient : public MaxCpp6<TcpClient> {
     
         //connect to server
         void open_conn( long inlet, t_symbol * s, long ac, t_atom * av ) {
-            _port = 5000;
             _socket = socket( AF_INET, SOCK_STREAM, 0 ); //streaming socket
             fcntl( _socket, F_SETFL, O_NONBLOCK ); //set socket to non-blocking
             if ( _socket < 0 ) 
                 post("ERROR: could not open socket");
-            _server = gethostbyname( "localhost" );
+            _server = gethostbyname( _hostname.c_str() );
             if ( _server == NULL ) {
                 post( "ERROR: no such host" );
                 exit(0);
@@ -96,16 +97,28 @@ class TcpClient : public MaxCpp6<TcpClient> {
             //outlet_anything(m_outlets[1], gensym(""), ac, av);
         }
     
+        void set_port(long inlet, long v) {
+            _port = v;
+            post( "port set: %i", v );
+        }
+    
+        void set_hostname(long inlet, t_symbol * s, long ac, t_atom * av) {
+            _hostname = string( atom_getsym(av)->s_name );
+            string output = "hostname set: " + _hostname;
+            post( output.c_str() );
+        }
+    
     private:
     
-        int _socket;
-        int _port;
-        int _inMsg;
-        int _outMsg;
-        struct sockaddr_in _servAddr;
-        struct hostent * _server;
-        char _inBuf[2048];
-        bool _bIsConnected;
+        int                 _socket;
+        int                 _port;
+        int                 _inMsg;
+        int                 _outMsg;
+        string              _hostname;
+        struct sockaddr_in  _servAddr;
+        struct hostent *    _server;
+        char                _inBuf[2048];
+        bool                _bIsConnected;
 
 };
 
@@ -117,4 +130,6 @@ C74_EXPORT int main(void) {
     REGISTER_METHOD_GIMME(TcpClient, send);
 	REGISTER_METHOD_GIMME(TcpClient, open_conn);
     REGISTER_METHOD_GIMME(TcpClient, close_conn);
+    REGISTER_METHOD_LONG(TcpClient, set_port);
+    REGISTER_METHOD_GIMME(TcpClient, set_hostname);
 }
