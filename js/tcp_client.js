@@ -1,10 +1,13 @@
-inlets = 1;
-outlets = 1;
+inlets = 2;
+outlets = 2;
 
 function anything()
 {
 	var args = arrayfromargs(messagename, arguments);
-	parse_obj( JSON.parse( args ) );
+	if ( inlet == 0 ) //from tcp server
+		parse_obj( JSON.parse( args ) );
+	else if ( inlet == 1 ) //from within patch
+		eval_sym( args );
 }
 
 function bang()
@@ -12,14 +15,33 @@ function bang()
 	return;
 }
 
-//parse and route incoming objects
+//parse and route incoming object from tcp server
 function parse_obj( obj )
 {
-	//post( obj.type, obj.data );
 	switch( obj.type ) {
 		case 'request_ident':
 			request_ident();
 			break;
+		case 'from_cinder':
+			outlet( 1, obj.id + " " + obj.data );
+			break;
+	}
+}
+
+//evaluate symbol from within max
+function eval_sym( args )
+{
+	var output = {};
+	output.type = null;
+	switch ( args[0] ) {
+		case 'test':
+			output.type = "to_cinder";
+			output.data = args[1];
+		break;
+	}
+	//filter incorrectly formatted input
+	if ( output.type != null ) {
+		send_obj( output );
 	}
 }
 
