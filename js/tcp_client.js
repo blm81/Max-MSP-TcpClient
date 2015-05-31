@@ -1,6 +1,8 @@
 inlets = 2;
 outlets = 2;
 
+var name = "max"; //use to route messages to correct live device
+
 function anything()
 {
 	var args = arrayfromargs(messagename, arguments);
@@ -37,6 +39,8 @@ function eval_sym( args )
 		case 'test':
 			output.type = "to_cinder";
 			output.data = args[1];
+		case 'set_name':
+			name = args[1];
 		break;
 	}
 	//filter incorrectly formatted input
@@ -56,6 +60,6 @@ function request_ident()
 {
 	var ret_val = {};
 	ret_val.type = "ident";
-	ret_val.data = "max";
+	ret_val.data = name;
 	send_obj( ret_val );
 }
