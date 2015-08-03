@@ -36,12 +36,19 @@ function eval_sym( args )
 	var output = {};
 	output.type = null;
 	switch ( args[0] ) {
-		case 'test':
+		case 'to_server':
 			output.type = "to_cinder";
-			output.data = args[1];
+			try {
+				output.data = JSON.parse( args[1] );
+			}
+			catch( exception ) {
+				console.log( "JSON parse exception: ", exception );
+			}
+		break; //'to_server'
+
 		case 'set_name':
 			name = args[1];
-		break;
+		break; //'set_name'
 	}
 	//filter incorrectly formatted input
 	if ( output.type != null ) {
