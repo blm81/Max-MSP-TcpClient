@@ -42,7 +42,7 @@ function eval_sym( args )
 				output.data = JSON.parse( args[1] );
 			}
 			catch( exception ) {
-				console.log( "JSON parse exception: ", exception );
+				post( "JSON parse exception: ", exception );
 			}
 		break; //'to_server'
 
